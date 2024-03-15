@@ -80,7 +80,7 @@ function App() {
           {resultNotes.map((item, index) => (
             <li key={index}>{`${item.count} notas de ${item.note}`}</li>
           ))}
-        </div>
+        </div>y
       </div>
 
       <footer>
