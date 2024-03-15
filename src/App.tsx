@@ -13,6 +13,7 @@ function App() {
   const [cost, setCost] = useState<string>("");
   const [payment, setPayment] = useState<string>("");
   const [resultNotes, setResultNotes] = useState<Note[]>([]);
+  const [total, setTotal] = useState(0)
 
   const Calculate = () => {
     const costValue = Number(cost);
@@ -31,6 +32,7 @@ function App() {
       return;
     } else {
       const result = Number(payment) - Number(cost);
+      setTotal(result)
       const notesArray = [100, 10, 1];
 
       let remaining = result;
@@ -81,6 +83,8 @@ function App() {
             <li key={index}>{`${item.count} notas de ${item.note}`}</li>
           ))}
         </div>
+
+        <p id="total"><strong>Total:</strong> R${total}</p>
       </div>
 
       <footer>
