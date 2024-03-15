@@ -3,6 +3,7 @@ import "../src/styles/App.css";
 import Lottie from "lottie-react";
 import MoneyFalling from "./assets/lotties/falling-money.json";
 import { LottieStyle } from "./styles/LottieStyle.tsx";
+import { NumericFormat } from "react-number-format"
 
 interface Note {
   note: number;
@@ -13,7 +14,7 @@ function App() {
   const [cost, setCost] = useState<string>("");
   const [payment, setPayment] = useState<string>("");
   const [resultNotes, setResultNotes] = useState<Note[]>([]);
-  const [total, setTotal] = useState(0)
+  const [total, setTotal] = useState('0')
 
   const Calculate = () => {
     const costValue = Number(cost);
@@ -32,7 +33,7 @@ function App() {
       return;
     } else {
       const result = Number(payment) - Number(cost);
-      setTotal(result)
+      setTotal(result.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.'))
       const notesArray = [100, 10, 1];
 
       let remaining = result;
@@ -57,22 +58,28 @@ function App() {
       <div id="calculate">
         <h1>Calculadora de troco</h1>
         <fieldset>
-          <p className="reais">Custo do produto:(R$)</p>
-          <input
-            type="number"
-            name="cost"
-            id="cost"
-            onChange={(e) => setCost(e.target.value)}
-          />
+        <p className="reais">Custo do produto:(R$)</p>
+         <NumericFormat
+          thousandSeparator = "."
+          decimalSeparator = ","
+          value={cost}
+          onValueChange={(values) => {
+            const { value } = values
+            setCost(value)
+          }}
+         />
         </fieldset>
         <fieldset>
           <p>Valor do pagamento:(R$)</p>
-          <input
-            type="number"
-            name="payment"
-            id="payment"
-            onChange={(e) => setPayment(e.target.value)}
-          />
+          <NumericFormat
+          thousandSeparator = "."
+          decimalSeparator = ","
+          value={payment}
+          onValueChange={(values) => {
+            const { value } = values
+            setPayment(value)
+          }}
+         />
         </fieldset>
         <button id="btn-calculate" onClick={Calculate}>
           Calcular
@@ -84,7 +91,7 @@ function App() {
           ))}
         </div>
 
-        <p id="total"><strong>Total:</strong> R${total}</p>
+        <p id="total"><strong>Total: </strong> R$ {total}</p>
       </div>
 
       <footer>
