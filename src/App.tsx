@@ -3,7 +3,7 @@ import "../src/styles/App.css";
 import Lottie from "lottie-react";
 import MoneyFalling from "./assets/lotties/falling-money.json";
 import { LottieStyle } from "./styles/LottieStyle.tsx";
-import { NumericFormat } from "react-number-format"
+import { NumericFormat } from "react-number-format";
 
 interface Note {
   note: number;
@@ -14,7 +14,7 @@ function App() {
   const [cost, setCost] = useState<string>("");
   const [payment, setPayment] = useState<string>("");
   const [resultNotes, setResultNotes] = useState<Note[]>([]);
-  const [total, setTotal] = useState('0')
+  const [total, setTotal] = useState("0");
 
   const Calculate = () => {
     const costValue = Number(cost);
@@ -31,9 +31,13 @@ function App() {
     ) {
       alert("Favor verificar os campos, informações incorretas!");
       return;
+    } else if (costValue <= 0 || paymentValue <= 0) {
+      alert(
+        "Você inseriu valores negativos, favor verificar se os valores estão corretos!"
+      );
     } else {
       const result = Number(payment) - Number(cost);
-      setTotal(result.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.'))
+      setTotal(result.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."));
       const notesArray = [100, 10, 1];
 
       let remaining = result;
@@ -57,30 +61,33 @@ function App() {
       <Lottie style={LottieStyle} animationData={MoneyFalling} />
       <div id="calculate">
         <h1>Calculadora de Troco</h1>
-        <p id="description">Informe o valor da compra e o dinheiro do pagamento para o calculo de troco.</p>
+        <p id="description">
+          Informe o valor da compra e o dinheiro do pagamento para o calculo de
+          troco.
+        </p>
         <fieldset>
-        <p className="reais">Custo do produto:(R$)</p>
-         <NumericFormat
-          thousandSeparator = "."
-          decimalSeparator = ","
-          value={cost}
-          onValueChange={(values) => {
-            const { value } = values
-            setCost(value)
-          }}
-         />
+          <p className="reais">Custo do produto:(R$)</p>
+          <NumericFormat
+            thousandSeparator="."
+            decimalSeparator=","
+            value={cost}
+            onValueChange={(values) => {
+              const { value } = values;
+              setCost(value);
+            }}
+          />
         </fieldset>
         <fieldset>
           <p>Valor do pagamento:(R$)</p>
           <NumericFormat
-          thousandSeparator = "."
-          decimalSeparator = ","
-          value={payment}
-          onValueChange={(values) => {
-            const { value } = values
-            setPayment(value)
-          }}
-         />
+            thousandSeparator="."
+            decimalSeparator=","
+            value={payment}
+            onValueChange={(values) => {
+              const { value } = values;
+              setPayment(value);
+            }}
+          />
         </fieldset>
         <button id="btn-calculate" onClick={Calculate}>
           Calcular
@@ -92,12 +99,18 @@ function App() {
           ))}
         </div>
 
-        <p id="total"><strong>Total: </strong> R$ {total}</p>
+        <p id="total">
+          <strong>Total: </strong> R$ {total}
+        </p>
       </div>
 
       <footer>
         <a href="https://github.com/deveonn/desafio-trainee" target="_blank">
-          <img id="github-icon"src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub Icon" />
+          <img
+            id="github-icon"
+            src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
+            alt="GitHub Icon"
+          />
           <p>Código do Projeto</p>
         </a>
       </footer>
