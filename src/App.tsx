@@ -56,7 +56,8 @@ function App() {
     <>
       <Lottie style={LottieStyle} animationData={MoneyFalling} />
       <div id="calculate">
-        <h1>Calculadora de troco</h1>
+        <h1>Calculadora de Troco</h1>
+        <p id="description">Informe o valor da compra e o dinheiro do pagamento para o calculo de troco.</p>
         <fieldset>
         <p className="reais">Custo do produto:(R$)</p>
          <NumericFormat

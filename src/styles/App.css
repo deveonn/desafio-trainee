@@ -24,6 +24,8 @@ body {
   overflow: hidden;
 }
 
+
+
 #calculate {
   width: fit-content;
   height: fit-content;
@@ -97,6 +99,12 @@ a {
   :root {
     font-size: 0.8rem;
   }
+
+  #calculate {
+    margin-top: 50px;
+  }
+
+
 
   body {
     width: 100vw;
