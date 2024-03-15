@@ -1,5 +1,5 @@
 # Projeto Calculadora de Troco em React
-<a href="https://deveonn.github.io/desafio-trainee/" targe="_blank">Clique aqui pra ver o projeto funcionando </a> 😀
+<a href="https://deveonn.github.io/desafio-trainee/" target="_blank">Clique aqui pra ver o projeto funcionando </a> 😀
 
 Este é um projeto desenvolvido em React que implementa uma calculadora de troco. O objetivo é permitir que o usuário calcule o troco de uma transação, supondo que o caixa possua notas infinitas de 1, 10 e 100 reais.
 
