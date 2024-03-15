@@ -82,6 +82,13 @@ function App() {
           ))}
         </div>
       </div>
+
+      <footer>
+        <a href="https://github.com/deveonn/desafio-trainee" target="_blank">
+          <img id="github-icon"src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub Icon" />
+          <p>Código do Projeto</p>
+        </a>
+      </footer>
     </>
   );
 }

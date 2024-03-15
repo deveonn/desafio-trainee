@@ -52,6 +52,7 @@ input, #btn-calculate {
   color: var(--white);
   background-color: #1F8C77;
   font-size: 1rem;
+  cursor: pointer;
 }
 
 fieldset {
@@ -60,6 +61,32 @@ fieldset {
 
 #result {
   font-size: 1.5rem;
+}
+
+footer {
+  width: 100%;
+  height: 50px;
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+}
+
+footer > a >  img {
+  height: 30px;
+  width: 30px;
+  display: inline;
+}
+
+a {
+  display: flex;
+  align-items: center;
+  gap:15px;
+  color: var(black);
+  text-decoration: none;
 }
 
 @media (max-width: 720px) {
